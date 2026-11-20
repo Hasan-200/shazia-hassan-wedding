@@ -1,0 +1,515 @@
+
+/* =====================================
+   1. GENERAL SETTINGS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #b4945c;
+    --dark-gold: #80643b;
+    --ivory: #faf7f0;
+    --cream: #eee6d8;
+    --brown: #514331;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eee9df;
+    color: var(--brown);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+/* =====================================
+   2. OPENING SCREEN
+===================================== */
+
+.welcome-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle, #fffdf8, #e9dfcf);
+    text-align: center;
+}
+
+.envelope {
+    width: 100%;
+    max-width: 430px;
+    background: var(--ivory);
+    border: 1px solid var(--gold);
+    padding: 12px;
+    box-shadow: 0 15px 50px rgba(80, 60, 30, 0.15);
+    position: relative;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+}
+
+.envelope-top {
+    padding: 55px 15px 20px;
+    color: var(--dark-gold);
+    font-size: 25px;
+}
+
+.envelope-body {
+    padding: 20px 15px 60px;
+}
+
+.small-heading {
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: var(--dark-gold);
+}
+
+.envelope-body h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 58px;
+    font-weight: 400;
+    color: var(--gold);
+    margin: 25px 0;
+}
+
+.envelope-body p:not(.small-heading) {
+    font-size: 19px;
+    letter-spacing: 3px;
+}
+
+#openButton {
+    margin-top: 35px;
+    padding: 14px 35px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#openButton:hover {
+    background: var(--dark-gold);
+    transform: translateY(-3px);
+}
+
+.welcome-note {
+    margin-top: 25px;
+    font-size: 18px;
+    color: var(--dark-gold);
+    font-style: italic;
+}
+
+
+/* =====================================
+   3. MAIN INVITATION
+===================================== */
+
+.invitation {
+    width: 100%;
+    overflow: hidden;
+    background: var(--ivory);
+}
+
+.invitation[hidden] {
+    display: none !important;
+}
+
+
+/* =====================================
+   4. HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 850px;
+    padding: 100px 20px 70px;
+    text-align: center;
+
+    background:
+        radial-gradient(ellipse at top,
+        #fffefa 0%, #f7f0e5 65%, #eee4d4 100%);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Decorative arch */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(85%, 570px);
+    border: 1px solid var(--gold);
+    border-radius: 50% 50% 0 0;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "✧";
+    position: absolute;
+    top: 55px;
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.arabic {
+    font-size: 35px;
+    color: var(--dark-gold);
+    line-height: 2;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--dark-gold);
+    margin-top: 15px;
+}
+
+.gold-line {
+    width: 100px;
+    height: 1px;
+    background: var(--gold);
+    margin: 30px auto;
+}
+
+.invited-text {
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(65px, 12vw, 105px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--gold);
+    margin-top: 15px;
+}
+
+.and {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    color: var(--dark-gold);
+}
+
+.hero-message {
+    max-width: 350px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+.hero-date {
+    font-size: 17px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.hero-time {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.scroll-indicator {
+    margin-top: 55px;
+    color: var(--dark-gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* =====================================
+   5. COUNTDOWN SECTION
+===================================== */
+
+.countdown-section {
+    padding: 85px 20px;
+    text-align: center;
+    background: #e9dfcf;
+}
+
+.section-subtitle {
+    color: var(--dark-gold);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.countdown-section h2,
+.details-section h2,
+.rsvp-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--dark-gold);
+    margin: 15px 0 35px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.count-box {
+    width: 100px;
+    min-height: 105px;
+    background: var(--ivory);
+    border: 1px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.count-box span {
+    font-size: 35px;
+    color: var(--dark-gold);
+}
+
+.count-box small {
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================
+   6. WEDDING DETAILS
+===================================== */
+
+.details-section {
+    padding: 90px 20px;
+    text-align: center;
+    background: var(--ivory);
+}
+
+.detail-card {
+    max-width: 550px;
+    margin: auto;
+    padding: 45px 20px;
+    border: 1px solid var(--gold);
+    outline: 5px solid #eee6d8;
+}
+
+.detail-item {
+    margin-bottom: 40px;
+}
+
+.detail-icon {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.detail-item h3 {
+    color: var(--dark-gold);
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.detail-item p {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+
+/* =====================================
+   7. BUTTONS
+===================================== */
+
+.gold-button {
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 8px;
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    background: var(--dark-gold);
+}
+
+
+/* =====================================
+   8. RSVP SECTION
+===================================== */
+
+.rsvp-section {
+    padding: 85px 20px;
+    text-align: center;
+    background: #eee6d8;
+}
+
+.rsvp-message {
+    max-width: 400px;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.rsvp-buttons {
+    margin-top: 30px;
+}
+
+
+/* =====================================
+   9. FOOTER
+===================================== */
+
+.footer {
+    padding: 65px 20px;
+    text-align: center;
+    background: #4c4436;
+    color: #f8f1e4;
+}
+
+.footer h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    color: #d5b77e;
+    margin: 20px 0;
+}
+
+.footer p {
+    font-size: 18px;
+}
+
+.share-button {
+    padding: 12px 28px;
+    margin: 25px 0;
+    border: 1px solid #d5b77e;
+    background: transparent;
+    color: #f8f1e4;
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.copyright {
+    font-size: 11px !important;
+    letter-spacing: 3px;
+}
+
+
+/* =====================================
+   10. MOBILE RESPONSIVENESS
+===================================== */
+
+@media screen and (max-width: 600px) {
+
+    .hero {
+        min-height: 750px;
+        padding: 80px 15px 50px;
+    }
+
+    .arabic {
+        font-size: 27px;
+    }
+
+    .hero-subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero-message {
+        font-size: 14px;
+    }
+
+    .hero-date {
+        font-size: 14px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .count-box {
+        width: 75px;
+        min-height: 90px;
+    }
+
+    .count-box span {
+        font-size: 27px;
+    }
+
+    .count-box small {
+        font-size: 11px;
+    }
+
+    .countdown-section h2,
+    .details-section h2,
+    .rsvp-section h2 {
+        font-size: 31px;
+    }
+
+    .detail-item p {
+        font-size: 19px;
+    }
+
+    .gold-button {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+}
+
+/* =====================================
+   INVITATION OPENING ANIMATION
+===================================== */
+
+.show-invitation {
+    animation: invitationReveal 1.5s ease forwards;
+}
+
+@keyframes invitationReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
